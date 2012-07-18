@@ -65,6 +65,7 @@ let mapleader = ","
 :nmap <Leader>3 :tabnext<CR>
 :nmap <Leader>4 :tablast<CR>
 
+
 " Wed Dec 21 17:19:37 CST 2011 MiniBufExplorer使用的按键绑定
 :nmap <silent> <Leader>y :TMiniBufExplorer<CR>
 
