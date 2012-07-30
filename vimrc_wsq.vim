@@ -13,7 +13,12 @@ filetype on
 
 " the most frequent used working path.should change this in a project.
 let workPath='d:\work\'
-exec "cd ".workPath
+if isdirectory(workPath)
+    exec "cd ".workPath
+else
+    " tell the user to modify the path.
+    echo workPath.' is not a directory'
+endif
 
 set backspace=indent,eol,start whichwrap+=<,>,[,]
 set fileencodings=utf-8,gb2312,gbk,gb18030,ucs-bom,default,chinese
