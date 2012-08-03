@@ -12,7 +12,7 @@
 filetype on
 
 " the most frequent used working path.should change this in a project.
-let workPath='d:\work\'
+let workPath='d:\work\baidumap_wp7\trunk\Com.Baidu.Map\'
 if isdirectory(workPath)
     exec "cd ".workPath
 else
@@ -33,7 +33,6 @@ endif
 set cindent
 set tabstop=4
 set shiftwidth=4
-set colorcolumn=81
 " auto change tab to 4 spaces.should avoid this in Python.
 set expandtab
 set autoindent
