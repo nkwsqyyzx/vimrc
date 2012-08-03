@@ -12,7 +12,7 @@
 filetype on
 
 " the most frequent used working path.should change this in a project.
-let workPath='d:\work\baidumap_wp7\trunk\Com.Baidu.Map\'
+let workPath='d:\work\'
 if isdirectory(workPath)
     exec "cd ".workPath
 else
