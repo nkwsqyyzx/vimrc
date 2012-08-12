@@ -157,10 +157,10 @@ let mapleader = ","
 " gui font.
 if has('win32')
     set guifont=Courier_New:h13:cANSI
+elseif has('gui_macvim')
+    set guifont=Monaco:h13
 elseif has('unix')
     set guifont=Monospace\ 13
-else
-    set guifont=Monaco:h14
 endif
 
 " search word under the cursor.
