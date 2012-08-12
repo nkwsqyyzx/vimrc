@@ -157,6 +157,8 @@ let mapleader = ","
 " gui font.
 if has('win32')
     set guifont=Courier_New:h13:cANSI
+elseif has('unix')
+    set guifont=Monospace\ 13
 else
     set guifont=Monaco:h14
 endif
