@@ -76,8 +76,10 @@ set autoread
 " make gvim to the max size when started.
 if has("win32")
     autocmd GUIEnter * simalt ~x
+elseif has('unix')
+    autocmd GUIEnter * winsize 999 999
 else
-" add linux and mac version.
+" should test if it work at Mac OSX.
 endif
 
 " file type 2012/6/29/
