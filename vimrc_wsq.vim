@@ -5,9 +5,11 @@
 "
 " Maintainer:  wsq
 " Last Change: 2012-7-30 15:47:52
-" Email:       nk.wangshuangquan@gmail.com    
+" Email:       nk.wangshuangquan@gmail.com
 " Version:     0.1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let s:script_name = expand('<sfile>:p:h')
 
 filetype on
 
@@ -16,8 +18,8 @@ let workPath='d:\work\'
 if isdirectory(workPath)
     exec "cd ".workPath
 else
-    " tell the user to modify the path.
-    echo workPath.' is not a directory'
+    " do not tell the user to modify the path.
+    " echo workPath.' is not a directory'
 endif
 
 set backspace=indent,eol,start whichwrap+=<,>,[,]
@@ -192,7 +194,7 @@ function! ChangeToHFile()
     endif
     if filereadable(fileopen)
         call SwitchToBuf(fileopen)
-    else 
+    else
     endif
 endfunction
 
@@ -241,6 +243,12 @@ function! EditFileDirectory()
     exec ":e ". fnameescape(path)
 endfunction
 
+" load a script the current directory
+function! LoadScriptName(fname)
+    let fname = s:script_name . '/' . a:fname
+    exec 'so '.fname
+endfunction
+
 " enter the current file`s directory.
 :nmap <Leader>Z :call ChangeToDirectory()<CR>
 function! ChangeToDirectory()
@@ -278,3 +286,6 @@ fun! DeleteAllBuffersInWindow()
 endfun
 command! -nargs=0 DeleteAllBuffers call DeleteAllBuffersInWindow()
 let g:indent_guides_guide_size = 1
+
+" load self defined vim scripts.
+call LoadScriptName('ReplaceSpacesWithTabs.vim')
