@@ -236,6 +236,9 @@ function! SwitchToBuf(filename)
     endif
 endfunction
 
+" delete white space at the end of line.
+command! -nargs=0 TralingSpaces exec ':%s/\s\+$//g'
+
 " edit the current directory.
 :nmap <Leader>z :call EditFileDirectory()<CR>
 function! EditFileDirectory()
