@@ -73,14 +73,8 @@ set path+=.\*\,.\*\*\,.\*\*\*\
 " auto read file if the file was updated.
 set autoread
 
-" make gvim to the max size when started.
-if has("win32")
-    autocmd GUIEnter * simalt ~x
-elseif has('unix')
-    autocmd GUIEnter * winsize 999 999
-else
-" should test if it work at Mac OSX.
-endif
+" make gvim to the max size when started.see help winsize,it will work at all platforms.
+autocmd GUIEnter * winsize 999 999
 
 " file type 2012/6/29/
 au BufRead,BufNewFile *.xaml set filetype=xml
