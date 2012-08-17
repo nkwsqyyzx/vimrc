@@ -73,7 +73,7 @@ set path+=.\*\,.\*\*\,.\*\*\*\
 " auto read file if the file was updated.
 set autoread
 
-" make gvim to the max size when started.
+" make gvim to the max size when started.winsize not work in windows...
 if has("win32")
     autocmd GUIEnter * simalt ~x
 elseif has('unix')
@@ -82,8 +82,6 @@ elseif has('unix')
     else
         autocmd GUIEnter * winsize 999 999
     endif
-else
-" should test if it work at Mac OSX.
 endif
 
 " file type 2012/6/29/
