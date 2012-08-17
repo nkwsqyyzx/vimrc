@@ -77,7 +77,11 @@ set autoread
 if has("win32")
     autocmd GUIEnter * simalt ~x
 elseif has('unix')
-    autocmd GUIEnter * winsize 999 999
+    if &diff
+        autocmd GUIEnter * winsize 200 999
+    else
+        autocmd GUIEnter * winsize 999 999
+    endif
 else
 " should test if it work at Mac OSX.
 endif
@@ -162,7 +166,7 @@ let mapleader = ","
 if has('win32')
     set guifont=Courier_New:h13:cANSI
 elseif has('gui_macvim')
-    set guifont=Monaco:h13
+    set guifont=Monaco:h14
 elseif has('unix')
     set guifont=Monospace\ 13
 endif
