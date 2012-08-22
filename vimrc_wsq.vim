@@ -10,6 +10,10 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let s:script_name = expand('<sfile>:p:h')
+" set for develope environmet.
+" 1 for ios
+" 0 for c#
+let s:dev_env = 1
 
 filetype on
 
@@ -183,7 +187,7 @@ function! ChangeToHFile()
     let filename=expand("%:r")
     let fileext=expand("%:e")
     let fileopen=""
-    if 0
+    if s:dev_env==1
         if fileext==?"h"
             let fileopen=filename.".m"
         else
@@ -241,7 +245,7 @@ function! SwitchToBuf(filename)
 endfunction
 
 " delete white space at the end of line.
-command! -nargs=0 TralingSpaces exec ':%s/\s\+$//g'
+command! -nargs=0 TralingSpaces silent exec ':%s/\s\+$//g'
 
 " edit the current directory.
 :nmap <Leader>z :call EditFileDirectory()<CR>
