@@ -30,10 +30,6 @@ set backspace=indent,eol,start whichwrap+=<,>,[,]
 set fileencodings=utf-8,gb2312,gbk,gb18030,ucs-bom,default,chinese
 syntax on
 
-if filereadable('c:\private.vim')
-    source c:\private.vim
-endif
-
 " Sun Aug 21 00:05:50 CST 2011
 " format codes.
 set cindent
@@ -175,11 +171,18 @@ elseif has('unix')
     set guifont=Monospace\ 13
 endif
 
+" the search file patterns
+if s:dev_env == 0
+    let s:vimgrepfiles = " *.cs *.xaml"
+else
+    let s:vimgrepfiles = " *.m *.h *.mm"
+endif
+
 " search word under the cursor.
 map <S-F4> :call Search_Word()<CR>:copen<CR>
 function! Search_Word()
 let w = expand("<cword>") " get the word under the cursor
-silent execute ":vimgrep " w " **/*.cs **/*.xaml *.cs *.xaml"
+silent execute ":vimgrep " w . s:vimgrepfiles
 endfunction
 
 " Shift-F5 easy to change to .m/.h file.
