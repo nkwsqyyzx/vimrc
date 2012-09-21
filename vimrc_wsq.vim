@@ -37,6 +37,7 @@ endif
 " Sun Aug 21 00:05:50 CST 2011
 " format codes.
 set cindent
+set smartindent
 set tabstop=4
 set shiftwidth=4
 " auto change tab to 4 spaces.should avoid this in Python.
@@ -66,6 +67,7 @@ set ruler
 
 " esay searching file.
 set incsearch
+set cursorline
 set hlsearch
 set ignorecase
 " press ESC to unhilight the search results.
@@ -206,6 +208,9 @@ function! ChangeToHFile()
     endif
 endfunction
 
+" press + to edit the current buffer directory
+:map + :e %:h<CR>
+
 " very useful,space to go to next/prev page.
 :map <Space> <C-F>
 :map <S-Space> <C-B>
@@ -245,7 +250,13 @@ function! SwitchToBuf(filename)
 endfunction
 
 " delete white space at the end of line.
-command! -nargs=0 TralingSpaces silent exec ':%s/\s\+$//g'
+command! -nargs=0 TralingSpaces silent! exec ':%s/\s\+$//g'
+
+autocmd BufWritePre *.m TralingSpaces
+autocmd BufWritePre *.h TralingSpaces
+autocmd BufWritePre *.mm TralingSpaces
+autocmd BufWritePre *.xaml TralingSpaces
+autocmd BufWritePre *.cs TralingSpaces
 
 " edit the current directory.
 :nmap <Leader>z :call EditFileDirectory()<CR>
@@ -281,7 +292,7 @@ command! -nargs=+ -complete=command TabMessage call TabMessage(<q-args>)
 
 " 2012/6/5/ added:delete all other buffers.
 " http://blog.csdn.net/magicpang/article/details/2308167
-fun! DeleteAllBuffersInWindow()
+function! DeleteAllBuffersInWindow()
     let s:curWinNr = winnr()
     if winbufnr(s:curWinNr) == 1
         ret
@@ -294,7 +305,7 @@ fun! DeleteAllBuffersInWindow()
         exe "bdel ".s:nextBufNr
         let s:nextBufNr = bufnr("%")
     endwhile
-endfun
+endfunction
 command! -nargs=0 DeleteAllBuffers call DeleteAllBuffersInWindow()
 let g:indent_guides_guide_size = 1
 
