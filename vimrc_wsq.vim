@@ -10,10 +10,10 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let s:script_name = expand('<sfile>:p:h')
-" set for develope environmet.
-" 1 for ios
-" 0 for c#
-let s:dev_env = 1
+" set for develope environmet.I just have ios and csharp
+" iosdev for ios
+" csharpdev for c#
+let s:dev_env = "csharpdev"
 
 filetype on
 
@@ -192,13 +192,13 @@ function! ChangeToHFile()
     let filename=expand("%:r")
     let fileext=expand("%:e")
     let fileopen=""
-    if s:dev_env==1
+    if s:dev_env == "iosdev"
         if fileext==?"h"
             let fileopen=filename.".m"
         else
             let fileopen=filename.".h"
         endif
-    else
+    elseif s:dev_env == "csharpdev"
         if fileext==?"xaml"
             let fileopen=filename.".xaml.cs"
         elseif fileext==?"cs"
@@ -260,6 +260,7 @@ autocmd BufWritePre *.h TralingSpaces
 autocmd BufWritePre *.mm TralingSpaces
 autocmd BufWritePre *.xaml TralingSpaces
 autocmd BufWritePre *.cs TralingSpaces
+autocmd BufWritePre *.vim TralingSpaces
 
 " edit the current directory.
 :nmap <Leader>z :call EditFileDirectory()<CR>
@@ -312,5 +313,19 @@ endfunction
 command! -nargs=0 DeleteAllBuffers call DeleteAllBuffersInWindow()
 let g:indent_guides_guide_size = 1
 
-" load self defined vim scripts.
+" start load self defined vim scripts.
 call LoadScriptName('ReplaceSpacesWithTabs.vim')
+call LoadScriptName('FilesInDir.vim')
+" end load
+
+" the search file patterns
+if s:dev_env == "csharpdev"
+    let g:SearchFileExtensions = ["cs","xaml"]
+    let g:SearchIgnoreDirs = ["Bin","Debug","Obj",".git",".svn"]
+elseif s:dev_env == "iosdev"
+    let g:SearchFileExtensions = ["m","h","mm"]
+    let g:SearchIgnoreDirs = [".git",".svn"]
+endif
+
+" search word under the cursor.
+map <S-F4> :call g:PatternInDir(expand('<cword>'),getcwd(),g:SearchFileExtensions,g:SearchIgnoreDirs)<CR>
