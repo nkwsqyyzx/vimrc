@@ -21,9 +21,6 @@ filetype on
 let workPath='d:\work\'
 if isdirectory(workPath)
     exec "cd ".workPath
-else
-    " do not tell the user to modify the path.
-    " echo workPath.' is not a directory'
 endif
 
 set backspace=indent,eol,start whichwrap+=<,>,[,]
@@ -315,6 +312,12 @@ if s:dev_env == "csharpdev"
 elseif s:dev_env == "iosdev"
     let g:SearchFileExtensions = ["m","h","mm"]
     let g:SearchIgnoreDirs = [".git",".svn"]
+
+    " we init a new ingnored dirs for the Non Autoreleased pattern search
+    let g:NonAutoreleaseAllocIgnoreDirs = []
+    call extend(g:NonAutoreleaseAllocIgnoreDirs,g:SearchIgnoreDirs)
+    call extend(g:NonAutoreleaseAllocIgnoreDirs,["AQGridView","ASIHTTPRequest","SBJSON"])
+    command! NonAutoreleaseAlloc silent! call g:PatternInDir('/\i\+\(\s\==\s\=\[\[\i\+ alloc\)\@=/',getcwd(),g:SearchFileExtensions,g:NonAutoreleaseAllocIgnoreDirs)<CR>
 endif
 
 " search word under the cursor.
