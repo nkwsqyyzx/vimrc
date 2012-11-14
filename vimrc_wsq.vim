@@ -47,6 +47,9 @@ nmap <tab> v>
 vmap <tab> >gv
 vmap <s-tab> <gv
 
+" Search the selected text quickly.From the help document.
+vmap / y/<C-R>"<CR>
+
 " no backup no swp.
 set nobackup
 set nowb
@@ -208,6 +211,11 @@ endfunction
 " two ,, to escape from insert mode,back to normal mode.
 " Wed Aug 24 09:05:44 CST 2011
 im  ,, <ESC>
+
+" two jj or two kk to escape from insert mode, back to normal mode and move the cursr.
+" Wed Nov 14 10:50:29 CST 2012
+im jj <ESC>j
+im kk <ESC>k
 
 " fast close window such as quickfix or help window.
 :nmap <silent> dc <C-W><C-W>:close<CR>
