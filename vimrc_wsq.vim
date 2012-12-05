@@ -36,6 +36,7 @@ set shiftwidth=4
 " auto change tab to 4 spaces.should avoid this in Python.
 set expandtab
 set autoindent
+set nowrap
 
 " Tue Aug 30 22:24:56 CST 2011 very useful in format a function or a {} block.
 :nmap <S-Tab> ma=a{`a
@@ -48,7 +49,7 @@ vmap <tab> >gv
 vmap <s-tab> <gv
 
 " Search the selected text quickly.From the help document.
-vmap / y/<C-R>"<CR>
+vmap <Leader> y/<C-R>"<CR>
 
 " no backup no swp.
 set nobackup
@@ -168,13 +169,6 @@ elseif has('unix')
     set guifont=Monospace\ 13
 endif
 
-" the search file patterns
-if s:dev_env == 0
-    let s:vimgrepfiles = " *.cs *.xaml"
-else
-    let s:vimgrepfiles = " *.m *.h *.mm"
-endif
-
 " Shift-F5 easy to change to .m/.h file.
 " Thu Aug 25 17:46:04 CST 2011 use bufexists to detect the buffer exists in the buffer list.
 :map <silent> <S-F5> :call ChangeToHFile()<CR>
@@ -212,10 +206,12 @@ endfunction
 " Wed Aug 24 09:05:44 CST 2011
 im  ,, <ESC>
 
-" two jj or two kk to escape from insert mode, back to normal mode and move the cursr.
+" two jj kk hh ll to escape from insert mode, back to normal mode and move the cursr.
 " Wed Nov 14 10:50:29 CST 2012
 im jj <ESC>j
-im kk <ESC>k
+im kk <ESC>kk
+im ll <ESC>2l
+im hh <ESC>h
 
 " fast close window such as quickfix or help window.
 :nmap <silent> dc <C-W><C-W>:close<CR>
@@ -253,8 +249,8 @@ command! -nargs=0 TralingSpaces silent! exec ':%s/\s\+$//g'
 autocmd BufWritePre *.m TralingSpaces
 autocmd BufWritePre *.h TralingSpaces
 autocmd BufWritePre *.mm TralingSpaces
-autocmd BufWritePre *.xaml TralingSpaces
-autocmd BufWritePre *.cs TralingSpaces
+" autocmd BufWritePre *.xaml TralingSpaces
+" autocmd BufWritePre *.cs TralingSpaces
 autocmd BufWritePre *.vim TralingSpaces
 
 " edit the current directory.
