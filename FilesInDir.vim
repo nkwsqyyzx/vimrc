@@ -79,8 +79,9 @@ endfunction
 
 " search pattern in dir
 function! g:PatternInDir(pattern,...)
-    let s:SearchFileExtensions = []
-    let s:SearchIgnoreDirs = []
+    " if not provided extension and dirs,use the globle settings.
+    let s:SearchFileExtensions = g:SearchFileExtensions
+    let s:SearchIgnoreDirs = g:SearchIgnoreDirs
 
     if a:0 > 0
         let l:currentDir=a:000[0]
