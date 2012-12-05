@@ -315,7 +315,7 @@ call LoadScriptName('FilesInDir.vim')
 
 " the search file patterns
 if s:dev_env == "csharpdev"
-    let g:SearchFileExtensions = ["cs","xaml"]
+    let g:SearchFileExtensions = ["cs","xaml","resw"]
     let g:SearchIgnoreDirs = ["Bin","Debug","Obj",".git",".svn"]
 elseif s:dev_env == "iosdev"
     let g:SearchFileExtensions = ["m","h","mm"]
