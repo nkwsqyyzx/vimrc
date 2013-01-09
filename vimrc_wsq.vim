@@ -307,6 +307,7 @@ let g:indent_guides_guide_size = 1
 " start load self defined vim scripts.
 call LoadScriptName('ReplaceSpacesWithTabs.vim')
 call LoadScriptName('FilesInDir.vim')
+call LoadScriptName('CommandLineCompleteFileName.vim')
 " end load
 
 " the search file patterns
