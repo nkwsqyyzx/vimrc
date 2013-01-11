@@ -60,7 +60,18 @@ set directory=.,$TEMP
 
 " easy view codes.
 set number
+nnoremap <Leader>r :call ToggleRelativeNumber()<CR>
 set ruler
+
+" if is relativenumber,set it to norelativenumber or else
+function! ToggleRelativeNumber()
+    if &relativenumber
+        set norelativenumber
+        set number
+    else
+        set relativenumber
+    endif
+endfunction
 
 " esay searching file.
 set incsearch
