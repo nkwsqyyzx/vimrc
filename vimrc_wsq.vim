@@ -17,12 +17,6 @@ let s:dev_env = "csharpdev"
 
 filetype on
 
-" the most frequent used working path.should change this in a project.
-let workPath='d:\work\'
-if isdirectory(workPath)
-    exec "cd ".workPath
-endif
-
 set backspace=indent,eol,start whichwrap+=<,>,[,]
 set fileencodings=utf-8,gb2312,gbk,gb18030,ucs-bom,default,chinese
 syntax on
@@ -47,6 +41,9 @@ set nowrap
 nmap <tab> v>
 vmap <tab> >gv
 vmap <s-tab> <gv
+
+" very important, for map leader.
+let mapleader = ","
 
 " Search the selected text quickly.From the help document.
 vmap <Leader> y/<C-R>"<CR>
@@ -97,9 +94,6 @@ endif
 
 " file type 2012/6/29/
 au BufRead,BufNewFile *.xaml set filetype=xml
-
-" very important, for map leader.
-let mapleader = ","
 
 " Mon Sep 19 10:49:18 CST 2011 new a tab.
 :nmap <Leader>t :tabnew<CR>
