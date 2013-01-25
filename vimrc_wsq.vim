@@ -38,7 +38,6 @@ set nowrap
 
 " 2012/7/16/ format codes.
 " From:http://wiki.hotoo.me/Vim.html
-nmap <tab> v>
 vmap <tab> >gv
 vmap <s-tab> <gv
 
