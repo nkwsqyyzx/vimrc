@@ -31,8 +31,6 @@ set shiftwidth=4
 set expandtab
 set autoindent
 set nowrap
-" remove all gui menu to make gvim clean
-set guioptions=
 
 " Tue Aug 30 22:24:56 CST 2011 very useful in format a function or a {} block.
 :nmap <S-Tab> ma=a{`a
