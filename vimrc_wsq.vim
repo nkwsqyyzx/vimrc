@@ -318,9 +318,11 @@ call LoadScriptName('CommandLineCompleteFileName.vim')
 if s:dev_env == "csharpdev"
     let g:SearchFileExtensions = ["cs","xaml","resw"]
     let g:SearchIgnoreDirs = ["Bin","Debug","Obj",".git",".svn"]
+    let NERDTreeIgnore = ['Bin[[dir]]','Debug[[dir]]','Obj[[dir]]','.git[[dir]]','.svn[[dir]]']
 elseif s:dev_env == "iosdev"
     let g:SearchFileExtensions = ["m","h","mm"]
     let g:SearchIgnoreDirs = [".git",".svn"]
+    let NERDTreeIgnore = ['.git[[dir]]','.svn[[dir]]']
 
     " we init a new ingnored dirs for the Non Autoreleased pattern search
     let g:NonAutoreleaseAllocIgnoreDirs = []
