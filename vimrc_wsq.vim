@@ -83,7 +83,7 @@ set autoread
 " make gvim to the max size when started.winsize not work in windows...
 if has("win32")
     autocmd GUIEnter * simalt ~x
-elseif has('unix')
+elseif has('gui_macvim')
     if &diff
         autocmd GUIEnter * winsize 200 999
     else
