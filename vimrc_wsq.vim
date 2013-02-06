@@ -44,9 +44,6 @@ vmap <s-tab> <gv
 " very important, for map leader.
 let mapleader = ","
 
-" Search the selected text quickly.From the help document.
-vmap <Leader> y/<C-R>"<CR>
-
 " no backup no swp.
 set nobackup
 set nowb
@@ -312,6 +309,7 @@ let g:indent_guides_guide_size = 1
 call LoadScriptName('ReplaceSpacesWithTabs.vim')
 call LoadScriptName('FilesInDir.vim')
 call LoadScriptName('CommandLineCompleteFileName.vim')
+call LoadScriptName('vsearch.vim')
 " end load
 
 " the search file patterns
