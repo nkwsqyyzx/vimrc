@@ -331,6 +331,7 @@ endif
 
 " search word under the cursor.
 map <S-F4> :call g:PatternInDir(expand('<cword>'),getcwd(),g:SearchFileExtensions,g:SearchIgnoreDirs)<CR>
+map <S-F2> :call g:PatternInDir('/'.getreg('/').'/',getcwd(),g:SearchFileExtensions,g:SearchIgnoreDirs)<CR>
 
 " easy to use NERDTree
 map <leader>f :NERDTreeToggle %:p:h<CR>
