@@ -10,10 +10,13 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let s:script_name = expand('<sfile>:p:h')
-" set for develope environmet.I just have ios and csharp
+
+" set for develop environment.I just have ios and csharp
 " iosdev for ios
 " csharpdev for c#
-let s:dev_env = "csharpdev"
+if !exists('g:dev_env')
+    echo "Error,you should define g:dev_env for develop environment"
+endif
 
 filetype on
 
@@ -30,7 +33,6 @@ set shiftwidth=4
 " auto change tab to 4 spaces.should avoid this in Python.
 set expandtab
 set autoindent
-set nowrap
 
 " Tue Aug 30 22:24:56 CST 2011 very useful in format a function or a {} block.
 :nmap <S-Tab> ma=a{`a
@@ -124,6 +126,8 @@ au BufRead,BufNewFile *.xaml set filetype=xml
 :vmap <C-x> "*d
 :vmap <C-c> "*y
 
+" change to current directory.
+set autochdir
 
 " Fri Oct 28 09:25:26 CST 2011
 " switch in buffers.
@@ -177,13 +181,13 @@ function! ChangeToHFile()
     let filename=expand("%:r")
     let fileext=expand("%:e")
     let fileopen=""
-    if s:dev_env == "iosdev"
+    if g:dev_env == "iosdev"
         if fileext==?"h"
             let fileopen=filename.".m"
         else
             let fileopen=filename.".h"
         endif
-    elseif s:dev_env == "csharpdev"
+    elseif g:dev_env == "csharpdev"
         if fileext==?"xaml"
             let fileopen=filename.".xaml.cs"
         elseif fileext==?"cs"
@@ -312,15 +316,17 @@ call LoadScriptName('CommandLineCompleteFileName.vim')
 call LoadScriptName('vsearch.vim')
 " end load
 
-" the search file patterns
-if s:dev_env == "csharpdev"
+" the search file patterns.
+" Common settings.
+let g:SearchIgnoreDirs = [".git",".svn"]
+let g:NERDTreeIgnore = ['.git[[dir]]','.svn[[dir]]']
+"
+if g:dev_env == "csharpdev"
     let g:SearchFileExtensions = ["cs","xaml","resw"]
-    let g:SearchIgnoreDirs = ["Bin","Debug","Obj",".git",".svn"]
-    let NERDTreeIgnore = ['Bin[[dir]]','Debug[[dir]]','obj[[dir]]','Obj[[dir]]','.git[[dir]]','.svn[[dir]]']
-elseif s:dev_env == "iosdev"
+    call extend(g:SearchIgnoreDirs,["Bin","Debug","Obj"])
+    call extend(g:NERDTreeIgnore,['obj[[dir]]','Obj[[dir]]'])
+elseif g:dev_env == "iosdev"
     let g:SearchFileExtensions = ["m","h","mm"]
-    let g:SearchIgnoreDirs = [".git",".svn"]
-    let NERDTreeIgnore = ['.git[[dir]]','.svn[[dir]]']
 
     " we init a new ingnored dirs for the Non Autoreleased pattern search
     let g:NonAutoreleaseAllocIgnoreDirs = []
@@ -329,9 +335,13 @@ elseif s:dev_env == "iosdev"
     command! NonAutoreleaseAlloc silent! call g:PatternInDir('/\i\+\(\s\==\s\=\[\[\i\+ alloc\)\@=/',getcwd(),g:SearchFileExtensions,g:NonAutoreleaseAllocIgnoreDirs)<CR>
 endif
 
-" search word under the cursor.
-map <S-F4> :call g:PatternInDir(expand('<cword>'),getcwd(),g:SearchFileExtensions,g:SearchIgnoreDirs)<CR>
-map <S-F2> :call g:PatternInDir('/'.getreg('/').'/',getcwd(),g:SearchFileExtensions,g:SearchIgnoreDirs)<CR>
+" search word under the cursor in files.
+map <F4> :call g:PatternInDir(expand('<cword>'),getcwd(),g:SearchFileExtensions,g:SearchIgnoreDirs)<CR>
+map <S-F4> :call g:PatternInDir(expand('<cword>'),g:work_directory,g:SearchFileExtensions,g:SearchIgnoreDirs)<CR>
+
+" search last pattern in files.
+map <F2> :call g:PatternInDir('/'.getreg('/').'/',getcwd(),g:SearchFileExtensions,g:SearchIgnoreDirs)<CR>
+map <S-F2> :call g:PatternInDir('/'.getreg('/').'/',g:work_directory,g:SearchFileExtensions,g:SearchIgnoreDirs)<CR>
 
 " easy to use NERDTree
 map <leader>f :NERDTreeToggle %:p:h<CR>
