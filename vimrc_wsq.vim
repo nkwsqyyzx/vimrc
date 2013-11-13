@@ -70,7 +70,9 @@ endfunction
 
 " esay searching file.
 set incsearch
-set cursorline
+if has('gui')
+    set cursorline
+endif
 set hlsearch
 set ignorecase
 " press ESC to unhilight the search results.
