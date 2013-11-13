@@ -211,13 +211,6 @@ endfunction
 " Wed Aug 24 09:05:44 CST 2011
 im  ,, <ESC>
 
-" two jj kk hh ll to escape from insert mode, back to normal mode and move the cursr.
-" Wed Nov 14 10:50:29 CST 2012
-im jj <ESC>j
-im kk <ESC>kk
-im ll <ESC>2l
-im hh <ESC>h
-
 " fast close window such as quickfix or help window.
 :nmap <silent> dc <C-W><C-W>:close<CR>
 
