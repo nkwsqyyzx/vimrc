@@ -163,10 +163,6 @@ set autochdir
 " edit the current directory but not enter the directory.
 :nmap <Leader>z :call EditFileDirectory()<CR>
 
-" Wed Sep 14 14:41:51 CST 2011
-" format codes.
-:nmap <Leader>f zfa}
-
 " gui font.
 if has('win32')
     set guifont=Courier_New:h13:cANSI
@@ -339,5 +335,9 @@ map <F2> :call g:PatternInDir('/'.getreg('/').'/',getcwd(),g:SearchFileExtension
 map <S-F2> :call g:PatternInDir('/'.getreg('/').'/',g:work_directory,g:SearchFileExtensions,g:SearchIgnoreDirs)<CR>
 
 " easy to use NERDTree
-map <leader>f :NERDTreeToggle %:p:h<CR>
+map <leader>e :NERDTreeToggle %:p:h<CR>
 map <leader>m :NERDTreeFind<CR>
+
+map <leader>f :FufFile<CR>
+map <leader>b :FufBuffer<CR>
+map <leader>j :FufJumpList<CR>
