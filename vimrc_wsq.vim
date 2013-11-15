@@ -341,3 +341,6 @@ map <leader>m :NERDTreeFind<CR>
 map <leader>f :FufFile<CR>
 map <leader>b :FufBuffer<CR>
 map <leader>j :FufJumpList<CR>
+
+" set laststatus to show Powerline
+set laststatus=2
