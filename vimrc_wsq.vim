@@ -54,7 +54,7 @@ set nowb
 set directory=.,$TEMP
 
 " easy view codes.
-set number
+set relativenumber
 nnoremap <Leader>r :call ToggleRelativeNumber()<CR>
 set ruler
 
@@ -245,8 +245,9 @@ command! -nargs=0 TralingSpaces silent! exec ':%s/\s\+$//g'
 autocmd BufWritePre *.m TralingSpaces
 autocmd BufWritePre *.h TralingSpaces
 autocmd BufWritePre *.mm TralingSpaces
-" autocmd BufWritePre *.xaml TralingSpaces
-" autocmd BufWritePre *.cs TralingSpaces
+autocmd BufWritePre *.xaml TralingSpaces
+autocmd BufWritePre *.cs TralingSpaces
+autocmd BufWritePre *.sh TralingSpaces
 autocmd BufWritePre *.vim TralingSpaces
 
 " edit the current directory.
