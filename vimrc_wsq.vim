@@ -54,7 +54,7 @@ set nowb
 set directory=.,$TEMP
 
 " easy view codes.
-set number
+set relativenumber
 nnoremap <Leader>r :call ToggleRelativeNumber()<CR>
 set ruler
 
@@ -120,7 +120,7 @@ au BufRead,BufNewFile *.xaml set filetype=xml
 " clipboard.
 " Tue Sep 13 16:33:43 CST 2011
 :nmap <Leader>v "*p
-:imap <C-v> <C-o>"*p
+:imap <C-v> <LEFT><C-o>"*p
 :imap <Leader>v <C-r>"*
 
 " Thu Aug 25 08:51:46 CST 2011
@@ -245,8 +245,9 @@ command! -nargs=0 TralingSpaces silent! exec ':%s/\s\+$//g'
 autocmd BufWritePre *.m TralingSpaces
 autocmd BufWritePre *.h TralingSpaces
 autocmd BufWritePre *.mm TralingSpaces
-" autocmd BufWritePre *.xaml TralingSpaces
-" autocmd BufWritePre *.cs TralingSpaces
+autocmd BufWritePre *.xaml TralingSpaces
+autocmd BufWritePre *.cs TralingSpaces
+autocmd BufWritePre *.sh TralingSpaces
 autocmd BufWritePre *.vim TralingSpaces
 
 " edit the current directory.
