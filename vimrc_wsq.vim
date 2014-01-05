@@ -248,6 +248,7 @@ autocmd BufWritePre *.mm TralingSpaces
 autocmd BufWritePre *.xaml TralingSpaces
 autocmd BufWritePre *.cs TralingSpaces
 autocmd BufWritePre *.sh TralingSpaces
+autocmd BufWritePre *.py TralingSpaces
 autocmd BufWritePre *.vim TralingSpaces
 
 " edit the current directory.
