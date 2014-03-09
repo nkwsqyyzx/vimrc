@@ -95,6 +95,9 @@ endif
 " file type 2012/6/29/
 au BufRead,BufNewFile *.xaml set filetype=xml
 
+" file type 2014/3/9/
+autocmd FileType python set fileformat=unix
+
 " Mon Sep 19 10:49:18 CST 2011 new a tab.
 :nmap <Leader>t :tabnew<CR>
 :imap <C-t> <C-o>:tabnew<CR>
@@ -315,7 +318,7 @@ let g:SearchIgnoreDirs = [".git",".svn"]
 let g:NERDTreeIgnore = ['.git[[dir]]','.svn[[dir]]']
 "
 if g:dev_env == "csharpdev"
-    let g:SearchFileExtensions = ["cs","xaml","resw"]
+    let g:SearchFileExtensions = ["cs","xaml","resw","js","html"]
     call extend(g:SearchIgnoreDirs,["Bin","Debug","Obj"])
     call extend(g:NERDTreeIgnore,['obj[[dir]]','Obj[[dir]]'])
 elseif g:dev_env == "iosdev"
