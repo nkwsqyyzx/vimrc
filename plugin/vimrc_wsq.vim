@@ -309,10 +309,10 @@ command! -nargs=0 DeleteAllBuffers call DeleteAllBuffersInWindow()
 let g:indent_guides_guide_size = 1
 
 " start load self defined vim scripts.
-call LoadScriptName('ReplaceSpacesWithTabs.vim')
-call LoadScriptName('FilesInDir.vim')
-call LoadScriptName('CommandLineCompleteFileName.vim')
-call LoadScriptName('vsearch.vim')
+call LoadScriptName('../self/ReplaceSpacesWithTabs.vim')
+call LoadScriptName('../self/FilesInDir.vim')
+call LoadScriptName('../self/CommandLineCompleteFileName.vim')
+call LoadScriptName('../self/vsearch.vim')
 " end load
 
 " the search file patterns.
