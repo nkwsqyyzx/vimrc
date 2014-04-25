@@ -313,6 +313,7 @@ call LoadScriptName('../self/ReplaceSpacesWithTabs.vim')
 call LoadScriptName('../self/FilesInDir.vim')
 call LoadScriptName('../self/CommandLineCompleteFileName.vim')
 call LoadScriptName('../self/vsearch.vim')
+call LoadScriptName('../self/PluginSetting.vim')
 " end load
 
 " the search file patterns.
