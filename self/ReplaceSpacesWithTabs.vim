@@ -51,11 +51,7 @@ function! FormatBuffer(spaceToTab,tabstop)
     let line = 1
     while line <= line('$')
         let [ok,result] = ReplaceSpacesWithTabs(getline(line),a:spaceToTab,a:tabstop)
-        if ok > 0
-            if ok == 2
-                echo 'line '.line.' has a invalid indent.please check it.'
-            endif
-        else
+        if ok <= 0
             call setline(line,result)
         endif
         let line = line + 1
