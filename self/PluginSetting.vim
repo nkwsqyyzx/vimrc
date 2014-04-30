@@ -16,7 +16,7 @@ autocmd BufEnter *.c call s:AddTag('.')
 autocmd BufEnter *.cpp call s:AddTag('.')
 
 " android NERDTree setting
-let NERDTreeIgnore=[ '^bin$[[dir]]', '^gen$[[dir]]', '^drawable-hdpi$[[dir]]', '^drawable-ldpi$[[dir]]', '^drawable-mdpi$[[dir]]', '^drawable-xhdpi$[[dir]]', '^drawable-xxhdpi$[[dir]]', ]
+let NERDTreeIgnore=['^libs$[[dir]]','^exlibs$[[dir]]','^.settings$[[dir]]' , '^bin$[[dir]]', '^gen$[[dir]]','^drawable.\+[[dir]]',  ]
 
 " yankring
 let g:yankring_history_file = '.yankring_history_file'
