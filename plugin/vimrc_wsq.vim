@@ -320,12 +320,11 @@ call LoadScriptName('../self/PluginSetting.vim')
 " the search file patterns.
 " Common settings.
 let g:SearchIgnoreDirs = [".git",".svn"]
-let g:NERDTreeIgnore = ['.git[[dir]]','.svn[[dir]]']
+
 "
 if g:dev_env == "csharpdev"
     let g:SearchFileExtensions = ["cs","xaml","resw","js","html"]
     call extend(g:SearchIgnoreDirs,["Bin","Debug","Obj"])
-    call extend(g:NERDTreeIgnore,['obj[[dir]]','Obj[[dir]]'])
 elseif g:dev_env == "iosdev"
     let g:SearchFileExtensions = ["m","h","mm"]
 
