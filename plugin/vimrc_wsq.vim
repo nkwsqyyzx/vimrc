@@ -253,8 +253,6 @@ autocmd BufWritePre *.cs TralingSpaces
 autocmd BufWritePre *.sh TralingSpaces
 autocmd BufWritePre *.py TralingSpaces
 autocmd BufWritePre *.vim TralingSpaces
-autocmd BufWritePre *.java TralingSpaces
-autocmd BufWritePost *.java call TabsToSpaces()
 autocmd BufWritePre *.js TralingSpaces
 autocmd BufWritePre *.html TralingSpaces
 
