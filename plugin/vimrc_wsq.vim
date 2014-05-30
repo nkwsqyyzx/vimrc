@@ -70,13 +70,17 @@ endfunction
 
 " esay searching file.
 set incsearch
-if has('gui')
+if has('gui_running')
     set cursorline
 endif
 set hlsearch
 set ignorecase
 " press ESC to unhilight the search results.
-nnoremap <silent> <ESC> :noh<CR><ESC>
+" 2014-05-30 10:02:21 this will cause problem when run vim in mac shell.
+" so i must ignore this map when in mac shell.
+if !has('mac') || has('gui_running')
+    nnoremap <silent> <ESC> :noh<CR><ESC>
+endif
 
 " auto read file if the file was updated.
 set autoread
@@ -340,14 +344,6 @@ map <S-F4> :call g:PatternInDir(expand('<cword>'),g:work_directory,g:SearchFileE
 " search last pattern in files.
 map <F2> :call g:PatternInDir('/'.getreg('/').'/',getcwd(),g:SearchFileExtensions,g:SearchIgnoreDirs)<CR>
 map <S-F2> :call g:PatternInDir('/'.getreg('/').'/',g:work_directory,g:SearchFileExtensions,g:SearchIgnoreDirs)<CR>
-
-" easy to use NERDTree
-map <leader>e :NERDTreeToggle %:p:h<CR>
-map <leader>m :NERDTreeFind<CR>
-
-map <leader>f :FufFile<CR>
-map <leader>b :FufBuffer<CR>
-map <leader>j :FufJumpList<CR>
 
 " set laststatus to show Powerline
 set laststatus=2

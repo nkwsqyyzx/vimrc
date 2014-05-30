@@ -46,3 +46,29 @@ call extend(g:NERDTreeIgnore,['^drawable.\+[[dir]]'])
 call extend(g:NERDTreeIgnore,['^exlibs$[[dir]]'])
 call extend(g:NERDTreeIgnore,['^gen$[[dir]]'])
 call extend(g:NERDTreeIgnore,['^libs$[[dir]]'])
+
+" ack.vim
+let g:ack_default_options = " -s -H --nogroup --column --smart-case --follow"
+
+
+" easymotion 配置
+map <Leader> <Plug>(easymotion-prefix)
+let g:EasyMotion_smartcase = 1
+map  <leader>/ <Plug>(easymotion-sn)
+omap <leader>/ <Plug>(easymotion-tn)
+
+" JK motions: Line motions
+map <Leader>l <Plug>(easymotion-lineforward)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+map <Leader>h <Plug>(easymotion-linebackward)
+
+let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
+
+" easy to use NERDTree
+map <leader>e :NERDTreeToggle %:p:h<CR>
+map <leader>m :NERDTreeFind<CR>
+
+map <leader>F :FufFile<CR>
+map <leader>B :FufBuffer<CR>
+map <leader>J :FufJumpList<CR>
