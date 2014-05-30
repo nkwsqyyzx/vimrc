@@ -72,3 +72,9 @@ map <leader>m :NERDTreeFind<CR>
 map <leader>F :FufFile<CR>
 map <leader>B :FufBuffer<CR>
 map <leader>J :FufJumpList<CR>
+
+" fugitive settings.
+autocmd BufNewFile,BufRead COMMIT_EDITMSG :startinsert!
+nmap <leader>ga :Git add --patch<CR>
+nmap <leader>gs :Gstatus<CR>
+nmap <leader>gc :Gcommit<CR>
