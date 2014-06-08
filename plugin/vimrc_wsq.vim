@@ -51,7 +51,11 @@ set nobackup
 set nowb
 
 " see E303 can not open temp file.
-set directory=.,$TEMP
+if has("win32") || has("win64")
+    set directory=.,$TEMP
+else
+    set directory=/var/tmp
+end
 
 " easy view codes.
 set relativenumber
