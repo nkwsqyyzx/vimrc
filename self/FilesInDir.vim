@@ -112,3 +112,21 @@ function! g:PatternInDir(pattern,...)
         echo a:pattern . " has no results."
     endif
 endfunction
+
+function! g:srcRoot()
+    let l:prev = 1
+    let l:current = 2
+    let l:modifier = ":p:h"
+    let l:filedir = fnamemodify('', ':p')
+    while l:prev != l:current
+        let l:prev = l:current
+        let l:currentdir = fnamemodify(l:filedir, l:modifier)
+        let l:current = len(l:currentdir)
+        let l:git = l:currentdir . '/.git'
+        if isdirectory(l:git)
+            return l:currentdir . '/'
+        endif
+        let l:modifier = l:modifier . ":h"
+    endwhile
+    return ''
+endfunction

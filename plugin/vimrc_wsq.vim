@@ -351,3 +351,14 @@ map <S-F2> :call g:PatternInDir('/'.getreg('/').'/',g:work_directory,g:SearchFil
 
 " set laststatus to show Powerline
 set laststatus=2
+
+" function to use ack.vim
+function! l:A(pattern, ...)
+    if a:0 > 0
+        let l:searchDir = a:000[0]
+    else
+        let l:searchDir = g:srcRoot()
+    endif
+    exec ':Ack "' . a:pattern . '" ' . l:searchDir
+endfunction
+command! -nargs=+ A call l:A(<q-args>)
