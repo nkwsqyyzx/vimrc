@@ -329,7 +329,7 @@ let g:SearchIgnoreDirs = [".git",".svn"]
 
 "
 if g:dev_env == "csharpdev"
-    let g:SearchFileExtensions = ["cs","xaml","resw","js","html"]
+    let g:SearchFileExtensions = ["cs","xaml","resw","js","html","java","txt","xml"]
     call extend(g:SearchIgnoreDirs,["Bin","Debug","Obj"])
 elseif g:dev_env == "iosdev"
     let g:SearchFileExtensions = ["m","h","mm"]
@@ -342,12 +342,12 @@ elseif g:dev_env == "iosdev"
 endif
 
 " search word under the cursor in files.
-map <F4> :call g:PatternInDir(expand('<cword>'),getcwd(),g:SearchFileExtensions,g:SearchIgnoreDirs)<CR>
-map <S-F4> :call g:PatternInDir(expand('<cword>'),g:work_directory,g:SearchFileExtensions,g:SearchIgnoreDirs)<CR>
+map <F4> :call g:PatternInDir(expand('<cword>'),g:srcRoot(),g:SearchFileExtensions,g:SearchIgnoreDirs)<CR>
+map <S-F4> :call g:PatternInDir(expand('<cword>'),getcwd(),g:SearchFileExtensions,g:SearchIgnoreDirs)<CR>
 
 " search last pattern in files.
-map <F2> :call g:PatternInDir('/'.getreg('/').'/',getcwd(),g:SearchFileExtensions,g:SearchIgnoreDirs)<CR>
-map <S-F2> :call g:PatternInDir('/'.getreg('/').'/',g:work_directory,g:SearchFileExtensions,g:SearchIgnoreDirs)<CR>
+map <F2> :call g:PatternInDir('/'.getreg('/').'/',g:srcRoot(),g:SearchFileExtensions,g:SearchIgnoreDirs)<CR>
+map <S-F2> :call g:PatternInDir('/'.getreg('/').'/',getcwd(),g:SearchFileExtensions,g:SearchIgnoreDirs)<CR>
 
 " set laststatus to show Powerline
 set laststatus=2
@@ -359,6 +359,6 @@ function! l:A(pattern, ...)
     else
         let l:searchDir = g:srcRoot()
     endif
-    exec ':Ack "' . a:pattern . '" ' . l:searchDir
+    exec 'Ack "' . a:pattern . '" ' . l:searchDir
 endfunction
 command! -nargs=+ A call l:A(<q-args>)
