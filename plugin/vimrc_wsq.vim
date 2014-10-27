@@ -15,7 +15,7 @@ let s:script_name = expand('<sfile>:p:h')
 " iosdev for ios
 " csharpdev for c#
 if !exists('g:dev_env')
-    echo "Error,you should define g:dev_env for develop environment"
+    let g:dev_env = 'csharpdev'
 endif
 
 filetype on
