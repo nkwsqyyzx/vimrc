@@ -330,7 +330,7 @@ let g:SearchIgnoreDirs = [".git",".svn"]
 "
 if g:dev_env == "csharpdev"
     let g:SearchFileExtensions = ["cs","xaml","resw","js","html","java","txt","xml"]
-    call extend(g:SearchIgnoreDirs,["Bin","Debug","Obj"])
+    call extend(g:SearchIgnoreDirs,["Bin","bin","Debug","Obj"])
 elseif g:dev_env == "iosdev"
     let g:SearchFileExtensions = ["m","h","mm"]
 
