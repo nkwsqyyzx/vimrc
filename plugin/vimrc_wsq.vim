@@ -22,6 +22,9 @@ filetype on
 
 set backspace=indent,eol,start whichwrap+=<,>,[,]
 set fileencodings=utf-8,gb2312,gbk,gb18030,ucs-bom,default,chinese
+set encoding=utf-8
+set termencoding=utf-8
+
 syntax on
 
 " Sun Aug 21 00:05:50 CST 2011
