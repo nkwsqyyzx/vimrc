@@ -179,7 +179,7 @@ set autochdir
 
 " gui font.
 if has('win32')
-    set guifont=Courier_New:h13:cANSI
+    set guifont=Consolas:h13:cANSI
 elseif has('gui_macvim')
     set guifont=Monaco:h12
 elseif has('unix')
