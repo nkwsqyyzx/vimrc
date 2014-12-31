@@ -22,11 +22,7 @@ let g:pymode_lint_ignore = "E128"
 
 map <C-M> :CtrlP<CR>
 
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v(\.(git|svn)|((bin|gen|[oO]bj|[dD]ebug|__pycache__|drawable.+)[/\]))',
-  \ 'file': '\v\.(class|exe|so|dll)$',
-  \ }
-
+let g:ctrlp_custom_ignore = 'res\|bin\|Bin\|obj\|Obj\|debug\|Debug\|__pycache__\|gen\|drawable.\+\|\.git|\.svn'
 
 let g:NERDTreeIgnore = []
 " common dot files
