@@ -113,13 +113,13 @@ function! g:PatternInDir(pattern,...)
     endif
 endfunction
 
-function! g:srcRoot()
-    let l:prev = 1
+function! g:SrcRoot()
+    let l:olddir = 1
     let l:current = 2
     let l:modifier = ":p:h"
     let l:filedir = fnamemodify('', ':p')
-    while l:prev != l:current
-        let l:prev = l:current
+    while l:olddir != l:current
+        let l:olddir = l:current
         let l:currentdir = fnamemodify(l:filedir, l:modifier)
         let l:current = len(l:currentdir)
         let l:git = l:currentdir . '/.git'

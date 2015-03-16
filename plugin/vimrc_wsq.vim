@@ -348,23 +348,23 @@ elseif g:dev_env == "iosdev"
 endif
 
 " search word under the cursor in files.
-map <F4> :call g:PatternInDir(expand('<cword>'),g:srcRoot(),g:SearchFileExtensions,g:SearchIgnoreDirs)<CR>
+map <F4> :call g:PatternInDir(expand('<cword>'),g:SrcRoot(),g:SearchFileExtensions,g:SearchIgnoreDirs)<CR>
 map <S-F4> :call g:PatternInDir(expand('<cword>'),getcwd(),g:SearchFileExtensions,g:SearchIgnoreDirs)<CR>
 
 " search last pattern in files.
-map <F2> :call g:PatternInDir('/'.getreg('/').'/',g:srcRoot(),g:SearchFileExtensions,g:SearchIgnoreDirs)<CR>
+map <F2> :call g:PatternInDir('/'.getreg('/').'/',g:SrcRoot(),g:SearchFileExtensions,g:SearchIgnoreDirs)<CR>
 map <S-F2> :call g:PatternInDir('/'.getreg('/').'/',getcwd(),g:SearchFileExtensions,g:SearchIgnoreDirs)<CR>
 
 " set laststatus to show Powerline
 set laststatus=2
 
 " function to use ack.vim
-function! l:A(pattern, ...)
+function! s:A(pattern, ...)
     if a:0 > 0
         let l:searchDir = a:000[0]
     else
-        let l:searchDir = g:srcRoot()
+        let l:searchDir = g:SrcRoot()
     endif
     exec 'Ack "' . a:pattern . '" ' . l:searchDir
 endfunction
-command! -nargs=+ A call l:A(<q-args>)
+command! -nargs=+ A call s:A(<q-args>)
