@@ -61,6 +61,7 @@ else
 end
 
 " easy view codes.
+set number
 set relativenumber
 nnoremap <Leader>r :call ToggleRelativeNumber()<CR>
 set ruler
@@ -69,7 +70,6 @@ set ruler
 function! ToggleRelativeNumber()
     if &relativenumber
         set norelativenumber
-        set number
     else
         set relativenumber
     endif
