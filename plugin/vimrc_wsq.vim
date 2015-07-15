@@ -83,11 +83,7 @@ endif
 set hlsearch
 set ignorecase
 " press ESC to unhilight the search results.
-" 2014-05-30 10:02:21 this will cause problem when run vim in mac shell.
-" so i must ignore this map when in mac shell.
-if has('gui') || $SYS_OS!='mac'
-    nnoremap <silent> <ESC> :noh<CR><ESC>
-endif
+nnoremap <silent> <ESC> :noh<CR><ESC>
 
 " auto read file if the file was updated.
 set autoread
