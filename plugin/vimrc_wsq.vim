@@ -79,11 +79,11 @@ endfunction
 set incsearch
 if has('gui_running')
     set cursorline
+    " press ESC to unhilight the search results.
+    nnoremap <silent> <ESC> :noh<CR><ESC>
 endif
 set hlsearch
 set ignorecase
-" press ESC to unhilight the search results.
-nnoremap <silent> <ESC> :noh<CR><ESC>
 
 " auto read file if the file was updated.
 set autoread
