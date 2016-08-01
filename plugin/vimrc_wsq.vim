@@ -65,6 +65,7 @@ set number
 set relativenumber
 nnoremap <Leader>r :call ToggleRelativeNumber()<CR>
 set ruler
+set wildmenu
 
 " if is relativenumber,set it to norelativenumber or else
 function! ToggleRelativeNumber()
