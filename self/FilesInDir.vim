@@ -122,8 +122,8 @@ function! g:SrcRoot()
         let l:olddir = l:current
         let l:currentdir = fnamemodify(l:filedir, l:modifier)
         let l:current = len(l:currentdir)
-        let l:git = l:currentdir . '/.git'
-        if isdirectory(l:git)
+        " don't care old version svn
+        if isdirectory(l:currentdir . '/.git') || isdirectory(l:currentdir . '/.svn')
             return l:currentdir . '/'
         endif
         let l:modifier = l:modifier . ":h"
