@@ -51,7 +51,7 @@ call extend(g:NERDTreeIgnore, ['^libs$[[dir]]'])
 
 " ack.vim
 let g:ack_default_options = " -s -H --nogroup --column --smart-case --follow"
-
+autocmd BufReadPost quickfix call ack#ShowResults()
 
 " easymotion 配置
 map <Leader> <Plug>(easymotion-prefix)
