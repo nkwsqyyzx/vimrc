@@ -84,3 +84,4 @@ nmap <leader>gc :Gcommit<CR>
 nnoremap <leader>fu :CtrlPFunky<CR>
 nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<CR>
 let g:ctrlp_funky_matchtype = 'path'
+let g:airline_theme = 'murmur'
