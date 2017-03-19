@@ -160,9 +160,6 @@ set autochdir
 :nmap <A-j> ]c
 :nmap <A-k> [c
 
-" Tue Sep 13 16:34:01 CST 2011
-:nmap <Leader>w :w<CR>
-
 " Wed Sep 14 09:54:35 CST 2011
 :nmap <Leader>q :bd<CR>
 
