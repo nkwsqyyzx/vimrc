@@ -24,6 +24,7 @@ set backspace=indent,eol,start whichwrap+=<,>,[,]
 set fileencodings=utf-8,gb2312,gbk,gb18030,ucs-bom,default,chinese
 set encoding=utf-8
 set termencoding=utf-8
+set colorcolumn=100
 
 syntax on
 
@@ -177,7 +178,7 @@ set autochdir
 if has('win32')
     set guifont=Consolas:h13:cANSI
 elseif has('gui_macvim')
-    set guifont=Monaco:h12
+    set guifont=Monaco:h14
 elseif has('unix')
     set guifont=Monospace\ 13
 endif
