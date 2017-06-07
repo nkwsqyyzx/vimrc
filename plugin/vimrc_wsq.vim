@@ -24,7 +24,7 @@ set backspace=indent,eol,start whichwrap+=<,>,[,]
 set fileencodings=utf-8,gb2312,gbk,gb18030,ucs-bom,default,chinese
 set encoding=utf-8
 set termencoding=utf-8
-set colorcolumn=100
+set colorcolumn=120
 
 syntax on
 
@@ -108,6 +108,7 @@ au BufRead,BufNewFile *.xaml set filetype=xml
 
 " file type 2014/3/9/
 autocmd FileType python set fileformat=unix
+autocmd FileType python set colorcolumn=100
 
 " Mon Sep 19 10:49:18 CST 2011 new a tab.
 :nmap <Leader>t :tabnew<CR>
