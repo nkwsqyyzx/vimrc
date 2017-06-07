@@ -263,7 +263,6 @@ autocmd BufWritePre *.py TralingSpaces
 autocmd BufWritePre *.vim TralingSpaces
 autocmd BufWritePre *.js TralingSpaces
 autocmd BufWritePre *.html TralingSpaces
-autocmd BufWritePre *.java TralingSpaces
 
 " edit the current directory.
 :nmap <Leader>z :call EditFileDirectory()<CR>
