@@ -53,6 +53,30 @@ call extend(g:NERDTreeIgnore, ['^libs$[[dir]]'])
 let g:ack_default_options = " -s -H --nogroup --column --smart-case --follow"
 autocmd BufReadPost quickfix call ack#ShowResults()
 
+" function to use ack.vim
+function! s:A(pattern, ...)
+    if a:0 > 0
+        let l:searchDir = a:000[0]
+    else
+        let l:searchDir = g:SrcRoot()
+    endif
+    exec 'Ack "' . a:pattern . '" ' . l:searchDir
+endfunction
+command! -nargs=+ Aa call s:A(<q-args>)
+
+if exists(":Grepper")
+    runtime autoload/grepper.vim
+    let g:grepper.dir = 'repo,file'
+    let g:grepper.repo = ['.git', '.hg', '.svn']
+    command! -nargs=+ -complete=file A Grepper -noprompt -tool git -query <args>
+
+    function! AckWithGit()
+        let l:word = expand('<cword>')
+        exec 'Grepper -noprompt -tool git -query ' . l:word
+    endfunction
+    map <F4> :call AckWithGit()<CR>
+endif
+
 " easymotion 配置
 map <Leader> <Plug>(easymotion-prefix)
 let g:EasyMotion_smartcase = 1
