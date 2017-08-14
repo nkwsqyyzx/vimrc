@@ -51,7 +51,9 @@ call extend(g:NERDTreeIgnore, ['^libs$[[dir]]'])
 
 " ack.vim
 let g:ack_default_options = " -s -H --nogroup --column --smart-case --follow"
-autocmd BufReadPost quickfix call ack#ShowResults()
+if executable('ag')
+    let g:ackprg='/usr/local/bin/ag --vimgrep'
+endif
 
 " function to use ack.vim
 function! s:A(pattern, ...)
@@ -62,20 +64,14 @@ function! s:A(pattern, ...)
     endif
     exec 'Ack "' . a:pattern . '" ' . l:searchDir
 endfunction
-command! -nargs=+ Aa call s:A(<q-args>)
 
-if exists(":Grepper")
-    runtime autoload/grepper.vim
-    let g:grepper.dir = 'repo,file'
-    let g:grepper.repo = ['.git', '.hg', '.svn']
-    command! -nargs=+ -complete=file A Grepper -noprompt -tool git -query <args>
-
-    function! AckWithGit()
-        let l:word = expand('<cword>')
-        exec 'Grepper -noprompt -tool git -query ' . l:word
-    endfunction
-    map <F4> :call AckWithGit()<CR>
-endif
+command! -nargs=+ A call s:A(<q-args>)
+function! s:AckWithGit()
+    let l:searchDir = g:SrcRoot()
+    let l:word = expand('<cword>')
+    exec 'Ack "' . l:word . '" ' . l:searchDir
+endfunction
+map <F4> :call s:AckWithGit()<CR>
 
 " easymotion 配置
 map <Leader> <Plug>(easymotion-prefix)
