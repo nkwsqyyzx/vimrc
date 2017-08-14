@@ -20,7 +20,7 @@ let g:yankring_history_file = '.yankring_history_file'
 
 let g:pymode_lint_ignore = "E128"
 
-map <C-M> :CtrlP<CR>
+map <C-M> :CtrlPMRUFiles<CR>
 
 let g:ctrlp_ignore_dirs = ["build", "res", "bin", "Bin", "obj", "Obj", "debug", "Debug", "__pycache__", "gen", "drawable.\+", "\.git", "\.svn"]
 let g:ctrlp_custom_ignore = ''
