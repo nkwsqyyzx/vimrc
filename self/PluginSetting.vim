@@ -104,6 +104,7 @@ nmap <leader>gc :Gcommit<CR>
 nnoremap <leader>fu :CtrlPFunky<CR>
 nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<CR>
 let g:ctrlp_funky_matchtype = 'path'
+let g:ctrlp_working_path_mode = 'wra'
 let g:airline_theme = 'murmur'
 let g:pymode_options_max_line_length = 100
 let g:pep8_ignore="E501,W601"
