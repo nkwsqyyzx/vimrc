@@ -108,6 +108,9 @@ let g:ctrlp_working_path_mode = 'wra'
 let g:airline_theme = 'murmur'
 let g:pymode_options_max_line_length = 100
 let g:pep8_ignore="E501,W601"
+let g:syntastic_python_checkers=['flake8']
+let g:syntastic_python_flake8_args='--ignore=E501,E225'
 let g:pymode_folding = 0
 
 let g:pymode_lint_options_pep8 = {'max_line_length': g:pymode_options_max_line_length}
+let g:pymode_lint_options_pylint = {'max-line-length': g:pymode_options_max_line_length}
