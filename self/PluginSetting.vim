@@ -21,6 +21,7 @@ let g:yankring_history_file = '.yankring_history_file'
 let g:pymode_lint_ignore = "E128"
 
 map <C-M> :CtrlPMRUFiles<CR>
+map <leader><leader> :CtrlPBookmarkDir<CR>
 
 let g:ctrlp_ignore_dirs = ["build", "res", "bin", "Bin", "obj", "Obj", "debug", "Debug", "__pycache__", "gen", "drawable.\+", "\.git", "\.svn"]
 let g:ctrlp_custom_ignore = ''
@@ -114,3 +115,4 @@ let g:pymode_folding = 0
 
 let g:pymode_lint_options_pep8 = {'max_line_length': g:pymode_options_max_line_length}
 let g:pymode_lint_options_pylint = {'max-line-length': g:pymode_options_max_line_length}
+let g:pymode_lint_options_pycodestyle = {'max_line_length': g:pymode_options_max_line_length}
