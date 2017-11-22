@@ -23,6 +23,12 @@ let g:pymode_lint_ignore = "E128"
 map <C-M> :CtrlPMRUFiles<CR>
 map <leader><leader> :CtrlPBookmarkDir<CR>
 
+function! CtrlPSrcRoot()
+    let src = SrcRoot()
+    execute ':CtrlP ' . src
+endfunction
+nmap <C-Z> :call CtrlPSrcRoot()<CR>
+
 let g:ctrlp_ignore_dirs = ["build", "res", "bin", "Bin", "obj", "Obj", "debug", "Debug", "__pycache__", "gen", "drawable.\+", "\.git", "\.svn"]
 let g:ctrlp_custom_ignore = ''
 let s:sperator = ''
