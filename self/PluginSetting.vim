@@ -69,14 +69,14 @@ function! s:A(pattern, ...)
     else
         let l:searchDir = g:SrcRoot()
     endif
-    exec 'Ack "' . a:pattern . '" ' . l:searchDir
+    exec 'Ack! "' . a:pattern . '" ' . l:searchDir
 endfunction
 
 command! -nargs=+ A call s:A(<q-args>)
 function! s:AckWithGit()
     let l:searchDir = g:SrcRoot()
     let l:word = expand('<cword>')
-    exec 'Ack "' . l:word . '" ' . l:searchDir
+    exec 'Ack! "' . l:word . '" ' . l:searchDir
 endfunction
 map <F4> :call s:AckWithGit()<CR>
 
