@@ -125,6 +125,13 @@ function! g:SrcRoot()
         if isdirectory(l:currentdir . '/.git') || isdirectory(l:currentdir . '/.svn')
             return l:currentdir . '/'
         endif
+        if exists("g:SRCROOT_DETECT_FILE_LIST") && len(g:SRCROOT_DETECT_FILE_LIST) > 0
+            for f in g:SRCROOT_DETECT_FILE_LIST
+                if !empty(glob(l:currentdir . '/' . f))
+                    return l:currentdir
+                endif
+            endfor
+        endif
         let l:modifier = l:modifier . ":h"
     endwhile
     return ''

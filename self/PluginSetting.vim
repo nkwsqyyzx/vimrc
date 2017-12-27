@@ -24,7 +24,7 @@ map <C-M> :CtrlPMRUFiles<CR>
 map <leader><leader> :CtrlPBookmarkDir<CR>
 
 function! CtrlPSrcRoot()
-    let src = SrcRoot()
+    let src = g:SrcRoot()
     execute ':CtrlP ' . src
 endfunction
 nmap <C-Z> :call CtrlPSrcRoot()<CR>
