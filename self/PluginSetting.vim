@@ -59,7 +59,7 @@ call extend(g:NERDTreeIgnore, ['^libs$[[dir]]'])
 " ack.vim
 let g:ack_default_options = " -s -H --nogroup --column --smart-case --follow"
 if executable('ag')
-    let g:ackprg='/usr/local/bin/ag --vimgrep'
+    let g:ackprg='ag --vimgrep'
 endif
 
 " function to use ack.vim
