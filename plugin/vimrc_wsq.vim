@@ -106,9 +106,14 @@ endif
 " file type 2012/6/29/
 au BufRead,BufNewFile *.xaml set filetype=xml
 
+" default complete function 2020-03-05
+set omnifunc=syntaxcomplete#Complete
+
 " file type 2014/3/9/
 autocmd FileType python set fileformat=unix
-autocmd FileType python set colorcolumn=100
+autocmd FileType python set colorcolumn=120
+autocmd FileType java set colorcolumn=120
+autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 
 " Mon Sep 19 10:49:18 CST 2011 new a tab.
 :nmap <Leader>t :tabnew<CR>
