@@ -20,23 +20,6 @@ let g:yankring_history_file = '.yankring_history_file'
 
 let g:pymode_lint_ignore = "E128"
 
-map <C-M> :CtrlPMRUFiles<CR>
-map <leader><leader> :CtrlPBookmarkDir<CR>
-
-function! CtrlPSrcRoot()
-    let src = g:SrcRoot()
-    execute ':CtrlP ' . src
-endfunction
-nmap <C-Z> :call CtrlPSrcRoot()<CR>
-
-let g:ctrlp_ignore_dirs = ["build", "res", "bin", "Bin", "obj", "Obj", "debug", "Debug", "__pycache__", "gen", "drawable.\+", "\.git", "\.svn"]
-let g:ctrlp_custom_ignore = ''
-let s:sperator = ''
-for dir in g:ctrlp_ignore_dirs
-    let g:ctrlp_custom_ignore = g:ctrlp_custom_ignore . s:sperator . '\<' . dir . '\>'
-    let s:sperator = '\|'
-endfor
-
 let g:NERDTreeIgnore = []
 " common dot files
 call extend(g:NERDTreeIgnore, ['.git[[dir]]'])
@@ -107,11 +90,6 @@ autocmd BufNewFile,BufRead COMMIT_EDITMSG :startinsert!
 nmap <leader>ga :Git add --patch<CR>
 nmap <leader>gs :Gstatus<CR>
 nmap <leader>gc :Gcommit<CR>
-
-nnoremap <leader>fu :CtrlPFunky<CR>
-nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<CR>
-let g:ctrlp_funky_matchtype = 'path'
-let g:ctrlp_working_path_mode = 'wra'
 au VimEnter * AirlineTheme powerlineish
 let g:pymode_options_max_line_length = 100
 let g:pep8_ignore="E501,W601"

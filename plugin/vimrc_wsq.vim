@@ -328,6 +328,7 @@ call LoadScriptName('../self/FilesInDir.vim')
 call LoadScriptName('../self/CommandLineCompleteFileName.vim')
 call LoadScriptName('../self/vsearch.vim')
 call LoadScriptName('../self/PluginSetting.vim')
+call LoadScriptName('../self/CtrlPSettings.vim')
 " end load
 
 " the search file patterns.
