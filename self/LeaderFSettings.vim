@@ -6,6 +6,7 @@ let g:Lf_ShowDevIcons = 0
 
 nnoremap <leader>fu :LeaderfLine<CR>
 nnoremap <Leader>fU :execute 'Leaderf line --cword'<CR>
+nnoremap zz :execute 'Leaderf line --cword'<CR>
 
 map <C-M> :Leaderf mru<CR>
 map <leader><leader> :Leaderf self<CR>
