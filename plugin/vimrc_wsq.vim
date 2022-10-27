@@ -185,7 +185,7 @@ if has('win32')
     set guifont=Consolas:h13:cANSI
 elseif has('gui_macvim')
     set macligatures
-    set guifont=Fira\ Code:h14,Monaco:h14
+    set guifont=Fira\ Code:h14
 elseif has('unix')
     set guifont=Monospace\ 13
 endif
