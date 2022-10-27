@@ -196,7 +196,7 @@ function! s:CmdLineFileName(back)
 	if s:sought_bw + s:sought_fw <= len(g:FilesForEditing) && (
 			\  a:back && s:comp_i == 0 ||
 			\ !a:back && s:comp_i == len(s:completions) - 1)
-        call s:GenerateCompletions(s:seed, a:back)
+       call s:GenerateCompletions(s:seed, a:back)
 	endif
 
 	let old = s:completions[s:comp_i]
