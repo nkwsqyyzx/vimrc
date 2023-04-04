@@ -271,6 +271,9 @@ autocmd BufWritePre *.vim TralingSpaces
 autocmd BufWritePre *.js TralingSpaces
 autocmd BufWritePre *.html TralingSpaces
 
+" auto change to current file directory
+autocmd BufWinEnter * lcd %:p:h
+
 " edit the current directory.
 :nmap <Leader>z :call EditFileDirectory()<CR>
 function! EditFileDirectory()
